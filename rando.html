@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Card</title>
+    
+</head>
+<body>
+    
+
+    <script>
+        // Add some interactive functionality
+        let quantity = 1;
+
+        function increaseQty() {
+            quantity++;
+            document.getElementById('quantity').textContent = quantity;
+        }
+
+        function decreaseQty() {
+            if (quantity > 1) {
+                quantity--;
+                document.getElementById('quantity').textContent = quantity;
+            }
+        }
+
+        document.querySelector('.wishlist-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            this.style.color = this.style.color === 'red' ? '' : 'red';
+            this.textContent = this.textContent === '♡' ? '♥' : '♡';
+        });
+
+        document.querySelector('.btn-primary').addEventListener('click', function() {
+            this.textContent = `Added ${quantity} to Cart!`;
+            this.style.background = '#27ae60';
+            setTimeout(() => {
+                this.textContent = 'Add to Cart';
+                this.style.background = '';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

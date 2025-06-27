@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,6 +7,10 @@
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./src/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Oregano:ital@0;1&family=Pacifico&display=swap"
+    rel="stylesheet">
   <title>Gupta Electronics</title>
 </head>
 
@@ -14,7 +19,7 @@
     <div class="container">
       <div class="navbar-brand">
         <a href="index.html">
-          <h1>GUPTA ELECTRONICS</h1>
+          <h1>Gupta Electronics</h1>
         </a>
       </div>
 
@@ -111,53 +116,356 @@
     </div>
     <div class="policy">
       <!-- first policy -->
-      <div class="policy-icon">
-        <i class="fa-solid fa-thumbs-up"></i>
-      </div>
-      <div class="policy-text">
-        <p>this is nikhil</p>
-        <p>this is also nikhil</p>
+      <div class="pcy">
+        <div class="policy-icon">
+          <i class="fa-solid fa-thumbs-up"></i>
+        </div>
+        <div class="policy-text">
+          <p>this is nikhil</p>
+          <p>this is also nikhil</p>
+        </div>
       </div>
       <!-- second policy -->
-      <div class="policy-icon">
-        <i class="fa-solid fa-calendar"></i>
-      </div>
-      <div class="policy-text">
-        <p>this is nikhil</p>
-        <p>this is also nikhil</p>
+      <div class="pcy">
+        <div class="policy-icon">
+          <i class="fa-solid fa-calendar"></i>
+        </div>
+        <div class="policy-text">
+          <p>this is nikhil</p>
+          <p>this is also nikhil</p>
+        </div>
       </div>
       <!-- third policy -->
-      <div class="policy-icon">
-        <i class="fa-solid fa-truck"></i>
-      </div>
-      <div class="policy-text">
-        <p>this is nikhil</p>
-        <p>this is also nikhil</p>
+      <div class="pcy">
+        <div class="policy-icon">
+          <i class="fa-solid fa-truck"></i>
+        </div>
+        <div class="policy-text">
+          <p>this is nikhil</p>
+          <p>this is also nikhil</p>
+        </div>
       </div>
       <!-- forth policy -->
-      <div class="policy-icon">
-        <i class="fa-solid fa-user"></i>
-      </div>
-      <div class="policy-text">
-        <p>this is nikhil</p>
-        <p>this is also nikhil</p>
+      <div class="pcy">
+        <div class="policy-icon">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="policy-text">
+          <p>this is nikhil</p>
+          <p>this is also nikhil</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="store-details">
-    <div class="all-details"></div>
+  <section class="products">
+    <div class="heading-pro">
+      <h1>Products</h1>
+      <a href="products.html" class="exp"> Explore All</a>
+    </div>
+    
+    <div class="pro-cards">
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=280&fit=crop&crop=center"
+            alt="Nike Air Max Sneakers">
+          <div class="sale-badge">SALE</div>
+        </div>
+
+        <div class="product-info">
+          <div class="product-category">Footwear</div>
+          <h2 class="product-title">Nike Air Max Revolution</h2>
+          <p class="product-description">Experience ultimate comfort and style with these premium running shoes
+            featuring advanced cushioning technology.</p>
+
+          <div class="rating">
+            <div class="stars">★★★★☆</div>
+            <span class="rating-text">4.2 (128 reviews)</span>
+          </div>
+
+          <div class="quick-info">
+            <div class="info-item">
+              <div class="info-label">Quantity</div>
+              <div class="quantity-controls">
+                <button class="qty-btn" onclick="decreaseQty()">-</button>
+                <span class="qty-value" id="quantity">1</span>
+                <button class="qty-btn" onclick="increaseQty()">+</button>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Stock</div>
+              <div class="info-value">In Stock</div>
+            </div>
+          </div>
+
+          <div class="price-section">
+            <div class="price-container">
+              <span class="current-price">$89.99</span>
+              <span class="original-price">$129.99</span>
+            </div>
+            <div class="discount">31% OFF</div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn btn-primary full-width">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=280&fit=crop&crop=center"
+            alt="Nike Air Max Sneakers">
+          <div class="sale-badge">SALE</div>
+        </div>
+
+        <div class="product-info">
+          <div class="product-category">Footwear</div>
+          <h2 class="product-title">Nike Air Max Revolution</h2>
+          <p class="product-description">Experience ultimate comfort and style with these premium running shoes
+            featuring advanced cushioning technology.</p>
+
+          <div class="rating">
+            <div class="stars">★★★★☆</div>
+            <span class="rating-text">4.2 (128 reviews)</span>
+          </div>
+
+          <div class="quick-info">
+            <div class="info-item">
+              <div class="info-label">Quantity</div>
+              <div class="quantity-controls">
+                <button class="qty-btn" onclick="decreaseQty()">-</button>
+                <span class="qty-value" id="quantity">1</span>
+                <button class="qty-btn" onclick="increaseQty()">+</button>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Stock</div>
+              <div class="info-value">In Stock</div>
+            </div>
+          </div>
+
+          <div class="price-section">
+            <div class="price-container">
+              <span class="current-price">$89.99</span>
+              <span class="original-price">$129.99</span>
+            </div>
+            <div class="discount">31% OFF</div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn btn-primary full-width">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=280&fit=crop&crop=center"
+            alt="Nike Air Max Sneakers">
+          <div class="sale-badge">SALE</div>
+        </div>
+
+        <div class="product-info">
+          <div class="product-category">Footwear</div>
+          <h2 class="product-title">Nike Air Max Revolution</h2>
+          <p class="product-description">Experience ultimate comfort and style with these premium running shoes
+            featuring advanced cushioning technology.</p>
+
+          <div class="rating">
+            <div class="stars">★★★★☆</div>
+            <span class="rating-text">4.2 (128 reviews)</span>
+          </div>
+
+          <div class="quick-info">
+            <div class="info-item">
+              <div class="info-label">Quantity</div>
+              <div class="quantity-controls">
+                <button class="qty-btn" onclick="decreaseQty()">-</button>
+                <span class="qty-value" id="quantity">1</span>
+                <button class="qty-btn" onclick="increaseQty()">+</button>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Stock</div>
+              <div class="info-value">In Stock</div>
+            </div>
+          </div>
+
+          <div class="price-section">
+            <div class="price-container">
+              <span class="current-price">$89.99</span>
+              <span class="original-price">$129.99</span>
+            </div>
+            <div class="discount">31% OFF</div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn btn-primary full-width">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=280&fit=crop&crop=center"
+            alt="Nike Air Max Sneakers">
+          <div class="sale-badge">SALE</div>
+        </div>
+
+        <div class="product-info">
+          <div class="product-category">Footwear</div>
+          <h2 class="product-title">Nike Air Max Revolution</h2>
+          <p class="product-description">Experience ultimate comfort and style with these premium running shoes
+            featuring advanced cushioning technology.</p>
+
+          <div class="rating">
+            <div class="stars">★★★★☆</div>
+            <span class="rating-text">4.2 (128 reviews)</span>
+          </div>
+
+          <div class="quick-info">
+            <div class="info-item">
+              <div class="info-label">Quantity</div>
+              <div class="quantity-controls">
+                <button class="qty-btn" onclick="decreaseQty()">-</button>
+                <span class="qty-value" id="quantity">1</span>
+                <button class="qty-btn" onclick="increaseQty()">+</button>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Stock</div>
+              <div class="info-value">In Stock</div>
+            </div>
+          </div>
+
+          <div class="price-section">
+            <div class="price-container">
+              <span class="current-price">$89.99</span>
+              <span class="original-price">$129.99</span>
+            </div>
+            <div class="discount">31% OFF</div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn btn-primary full-width">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=280&fit=crop&crop=center"
+            alt="Nike Air Max Sneakers">
+          <div class="sale-badge">SALE</div>
+        </div>
+
+        <div class="product-info">
+          <div class="product-category">Footwear</div>
+          <h2 class="product-title">Nike Air Max Revolution</h2>
+          <p class="product-description">Experience ultimate comfort and style with these premium running shoes
+            featuring advanced cushioning technology.</p>
+
+          <div class="rating">
+            <div class="stars">★★★★☆</div>
+            <span class="rating-text">4.2 (128 reviews)</span>
+          </div>
+
+          <div class="quick-info">
+            <div class="info-item">
+              <div class="info-label">Quantity</div>
+              <div class="quantity-controls">
+                <button class="qty-btn" onclick="decreaseQty()">-</button>
+                <span class="qty-value" id="quantity">1</span>
+                <button class="qty-btn" onclick="increaseQty()">+</button>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Stock</div>
+              <div class="info-value">In Stock</div>
+            </div>
+          </div>
+
+          <div class="price-section">
+            <div class="price-container">
+              <span class="current-price">$89.99</span>
+              <span class="original-price">$129.99</span>
+            </div>
+            <div class="discount">31% OFF</div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn btn-primary full-width">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=280&fit=crop&crop=center"
+            alt="Nike Air Max Sneakers">
+          <div class="sale-badge">SALE</div>
+        </div>
+
+        <div class="product-info">
+          <div class="product-category">Footwear</div>
+          <h2 class="product-title">Nike Air Max Revolution</h2>
+          <p class="product-description">Experience ultimate comfort and style with these premium running shoes
+            featuring advanced cushioning technology.</p>
+
+          <div class="rating">
+            <div class="stars">★★★★☆</div>
+            <span class="rating-text">4.2 (128 reviews)</span>
+          </div>
+
+          <div class="quick-info">
+            <div class="info-item">
+              <div class="info-label">Quantity</div>
+              <div class="quantity-controls">
+                <button class="qty-btn" onclick="decreaseQty()">-</button>
+                <span class="qty-value" id="quantity">1</span>
+                <button class="qty-btn" onclick="increaseQty()">+</button>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Stock</div>
+              <div class="info-value">In Stock</div>
+            </div>
+          </div>
+
+          <div class="price-section">
+            <div class="price-container">
+              <span class="current-price">$89.99</span>
+              <span class="original-price">$129.99</span>
+            </div>
+            <div class="discount">31% OFF</div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn btn-primary full-width">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <footer class="ftr">
-    <div class="cont">
-      <p>all contant details with address</p>
+    <div class="foot">
+      <div class="foot-part">
+        <p>all contant details with address</p>
+      </div>
+      <div class="foot-part">
+        <p>provided options to the user</p>
+      </div>
+      <div class="foot-part">
+        <p>owner and contact details</p>
+      </div>
     </div>
-    <div class="options">
-      <p>provided options to the user</p>
-    </div>
-    
   </footer>
+
+  <div class="designed">
+    <p>Designed by <a href="google.com">Nikhil Sharma</a></p>
+  </div>
 
 </body>
 
