@@ -38,9 +38,6 @@
             <a href="contact.html" class="nav-link">contact</a>
           </li>
           <li class="nav-item">
-            <a href="offers.html" class="nav-link">Offers</a>
-          </li>
-          <li class="nav-item">
             <a href="addToCart.html" class="nav-link ckt" id="cktValue">
               <i class="fa-solid fa-cart-shopping"> 0 </i>
             </a>
@@ -71,50 +68,123 @@
           </figure>
         </div>
       </div>
-
-      <!-- <div class="custom-shape-divider-bottom-1750770430">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path
-            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-            opacity=".25" class="shape-fill"></path>
-          <path
-            d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-            opacity=".5" class="shape-fill"></path>
-          <path
-            d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
-            class="shape-fill"></path>
-        </svg>
-      </div> -->
     </section>
   </main>
-  <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><g fill="#AA45FF"><path d="M0 1v99c134.3 0 153.7-99 296-99H0Z" opacity=".5"></path><path d="M1000 4v86C833.3 90 833.3 3.6 666.7 3.6S500 90 333.3 90 166.7 4 0 4h1000Z" opacity=".5"></path><path d="M617 1v86C372 119 384 1 196 1h421Z" opacity=".5"></path><path d="M1000 0H0v52C62.5 28 125 4 250 4c250 0 250 96 500 96 125 0 187.5-24 250-48V0Z"></path></g></svg> -->
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><g fill="#AA45FF"><path d="M0 1v99c134.3 0 153.7-99 296-99H0Z" opacity=".5"></path><path d="M1000 4v86C833.3 90 833.3 3.6 666.7 3.6S500 90 333.3 90 166.7 4 0 4h1000Z" opacity=".5"></path><path d="M617 1v86C372 119 384 1 196 1h421Z" opacity=".5"></path><path d="M1000 0H0v52C62.5 28 125 4 250 4c250 0 250 96 500 96 125 0 187.5-24 250-48V0Z"></path></g></svg>
 
   <!-- New offers section -->
   <section class="section-extra-product">
     <div class="container-grid-three--column">
       <div class="new-prod">
-        <h1>New Product</h1>
+        <h1>Latest Arrivals</h1>
       </div>
       <div class="div-extra">
-        <div class="product-det">Description</div>
-        <div class="product-im">Images</div>
+        <div class="product-badge">New</div>
+        <div class="product-im"></div>
+        <div class="product-det">
+          <h3 class="product-title">Premium Wireless Headphones</h3>
+          <p class="product-description">Experience crystal-clear audio with our flagship noise-canceling headphones.
+            Perfect for music lovers and professionals.</p>
+          <ul class="product-features">
+            <li>Active Noise Cancellation</li>
+            <li>40-Hour Battery Life</li>
+            <li>Premium Leather Finish</li>
+            <li>Hi-Res Audio Certified</li>
+          </ul>
+          <div class="product-price">
+            <div>
+              <span class="price-tag">$299</span>
+              <span class="price-old">$399</span>
+            </div>
+          </div>
+          <div class="product-controls">
+            <div class="quantity-control">
+              <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="10">
+              <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+            </div>
+            <button class="cta-button">
+              <i class="fa-solid fa-cart-plus"></i>
+              Add to Cart
+            </button>
+          </div>
+        </div>
       </div>
 
+      <!-- Product 2 -->
       <div class="div-extra">
-        <div class="product-det">Description</div>
-        <div class="product-im">Images</div>
+        <div class="product-badge">Hot</div>
+        <div class="product-im"></div>
+        <div class="product-det">
+          <h3 class="product-title">Smart Fitness Tracker</h3>
+          <p class="product-description">Monitor your health 24/7 with advanced sensors and AI-powered insights. Your
+            personal wellness companion.</p>
+          <ul class="product-features">
+            <li>Heart Rate & SpO2 Monitoring</li>
+            <li>7-Day Battery Life</li>
+            <li>Water Resistant Design</li>
+            <li>Smart Notifications</li>
+          </ul>
+          <div class="product-price">
+            <div>
+              <span class="price-tag">$199</span>
+              <span class="price-old">$249</span>
+            </div>
+          </div>
+          <div class="product-controls">
+            <div class="quantity-control">
+              <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="10">
+              <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+            </div>
+            <button class="cta-button">
+              <i class="fa-solid fa-cart-plus"></i>
+              Add to Cart
+            </button>
+          </div>
+        </div>
       </div>
 
+      <!-- Product 3 -->
       <div class="div-extra">
-        <div class="product-det">Description</div>
-        <div class="product-im">Images</div>
+        <div class="product-badge">Limited</div>
+        <div class="product-im"></div>
+        <div class="product-det">
+          <h3 class="product-title">Ultra-Fast Gaming Mouse</h3>
+          <p class="product-description">Dominate every game with precision engineered for esports professionals.
+            Lightning-fast response times guaranteed.</p>
+          <ul class="product-features">
+            <li>25,000 DPI Sensor</li>
+            <li>Ultra-lightweight 65g</li>
+            <li>RGB Customization</li>
+            <li>Pro Gaming Switch</li>
+          </ul>
+          <div class="product-price">
+            <div>
+              <span class="price-tag">$129</span>
+              <span class="price-old">$179</span>
+            </div>
+          </div>
+          <div class="product-controls">
+            <div class="quantity-control">
+              <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" max="10">
+              <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+            </div>
+            <button class="cta-button">
+              <i class="fa-solid fa-cart-plus"></i>
+              Add to Cart
+            </button>
+          </div>
+        </div>
       </div>
+    </div>
     </div>
   </section>
 
   <section class="policy-section">
     <div class="Our-policy">
-      <h1>Our Services</h1>
+      <h1>Our Premium Services</h1>
     </div>
     <div class="policy">
       <!-- first policy -->
@@ -123,8 +193,9 @@
           <i class="fa-solid fa-thumbs-up"></i>
         </div>
         <div class="policy-text">
-          <p>this is nikhil</p>
-          <p>this is also nikhil</p>
+          <h3>Premium Quality Guarantee</h3>
+          <p>Every product undergoes rigorous quality checks. We stand behind our commitment to deliver only the finest,
+            most reliable products that exceed your expectations.</p>
         </div>
       </div>
       <!-- second policy -->
@@ -133,8 +204,9 @@
           <i class="fa-solid fa-calendar"></i>
         </div>
         <div class="policy-text">
-          <p>this is nikhil</p>
-          <p>this is also nikhil</p>
+          <h3>Hassle-Free Returns</h3>
+          <p>Changed your mind? No problem! Enjoy our 30-day easy replacement policy with free pickup and instant
+            refunds. Your satisfaction is our priority.</p>
         </div>
       </div>
       <!-- third policy -->
@@ -143,18 +215,20 @@
           <i class="fa-solid fa-truck"></i>
         </div>
         <div class="policy-text">
-          <p>this is nikhil</p>
-          <p>this is also nikhil</p>
+          <h3>Lightning-Fast Delivery</h3>
+          <p>Get your orders delivered in record time! Our express delivery network ensures your products reach you
+            quickly and safely, right to your doorstep.</p>
         </div>
       </div>
-      <!-- forth policy -->
+      <!-- fourth policy -->
       <div class="pcy">
         <div class="policy-icon">
           <i class="fa-solid fa-user"></i>
         </div>
         <div class="policy-text">
-          <p>this is nikhil</p>
-          <p>this is also nikhil</p>
+          <h3>24/7 Expert Support</h3>
+          <p>Our dedicated support team is always here for you. Get instant help through chat, email, or phone. We're
+            committed to solving your queries anytime, anywhere.</p>
         </div>
       </div>
     </div>
@@ -260,53 +334,6 @@
           </div>
         </div>
       </div>
-
-      <!-- <div class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=280&fit=crop&crop=center"
-            alt="Nike Air Max Sneakers">
-          <div class="sale-badge">SALE</div>
-        </div>
-
-        <div class="product-info">
-          <div class="product-category">Footwear</div>
-          <h2 class="product-title">Nike Air Max Revolution</h2>
-          <p class="product-description">Experience ultimate comfort and style with these premium running shoes
-            featuring advanced cushioning technology.</p>
-
-          <div class="rating">
-            <div class="stars">★★★★☆</div>
-            <span class="rating-text">4.2 (128 reviews)</span>
-          </div>
-
-          <div class="quick-info">
-            <div class="info-item">
-              <div class="info-label">Quantity</div>
-              <div class="quantity-controls">
-                <button class="qty-btn" onclick="decreaseQty()">-</button>
-                <span class="qty-value" id="quantity">1</span>
-                <button class="qty-btn" onclick="increaseQty()">+</button>
-              </div>
-            </div>
-            <div class="info-item">
-              <div class="info-label">Stock</div>
-              <div class="info-value">In Stock</div>
-            </div>
-          </div>
-
-          <div class="price-section">
-            <div class="price-container">
-              <span class="current-price">$89.99</span>
-              <span class="original-price">$129.99</span>
-            </div>
-            <div class="discount">31% OFF</div>
-          </div>
-
-          <div class="action-buttons">
-            <button class="btn btn-primary full-width">Add to Cart</button>
-          </div>
-        </div>
-      </div> -->
 
       <div class="product-card">
         <div class="product-image">
