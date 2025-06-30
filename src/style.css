@@ -40,10 +40,6 @@ body {
   background-attachment: fixed;
 }
 
-.section-navbar {
-  /* border: solid rgb(235, 67, 67) 2px; */
-}
-
 .container {
   display: flex;
   flex-wrap: wrap;
