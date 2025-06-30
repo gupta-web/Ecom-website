@@ -16,35 +16,36 @@
 
 <body>
   <header class="section-navbar">
-    <div class="container">
-      <div class="navbar-brand">
-        <a href="index.html">
-          <h1>Gupta Electronics</h1>
-        </a>
-      </div>
-
-      <nav class="navbar">
-        <ul>
-          <li class="nav-item">
-            <a href="/" class="nav-link">Home</a>
-          </li>
-          <li class="nav-item">
-            <a href="about.html" class="nav-link">about</a>
-          </li>
-          <li class="nav-item">
-            <a href="products.html" class="nav-link">products</a>
-          </li>
-          <li class="nav-item">
-            <a href="contact.html" class="nav-link">contact</a>
-          </li>
-          <li class="nav-item">
-            <a href="addToCart.html" class="nav-link ckt" id="cktValue">
-              <i class="fa-solid fa-cart-shopping"> 0 </i>
-            </a>
-          </li>
-        </ul>
-      </nav>
+    <div class="navbar-brand">
+      <a href="index.html">
+        <h1>Gupta Electronics</h1>
+      </a>
     </div>
+
+    <nav class="navbar">
+      <div class="hamburger" id="hamburger">
+        &#9776;
+      </div>
+      <ul class="navbar-menu" id="navbar-menu">
+        <li class="nav-item">
+          <a href="/" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="products.html" class="nav-link">Products</a>
+        </li>
+        <li class="nav-item">
+          <a href="contact.html" class="nav-link">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a href="addToCart.html" class="nav-link ckt" id="cktValue">
+            <i class="fa-solid fa-cart-shopping"></i> 0
+          </a>
+        </li>
+      </ul>
+    </nav>
   </header>
 
   <!-- front part of the website -->
@@ -63,14 +64,19 @@
           </p>
         </div>
         <div class="section-hero-image" data-aos="fade-up" data-aos-delay="600">
-          <figure>
-            <img src="./images/heroSection.png" alt="alternative not available">
-          </figure>
+          <img src="./images/heroSection.png" alt="alternative not available">
         </div>
       </div>
     </section>
   </main>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><g fill="#AA45FF"><path d="M0 1v99c134.3 0 153.7-99 296-99H0Z" opacity=".5"></path><path d="M1000 4v86C833.3 90 833.3 3.6 666.7 3.6S500 90 333.3 90 166.7 4 0 4h1000Z" opacity=".5"></path><path d="M617 1v86C372 119 384 1 196 1h421Z" opacity=".5"></path><path d="M1000 0H0v52C62.5 28 125 4 250 4c250 0 250 96 500 96 125 0 187.5-24 250-48V0Z"></path></g></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100">
+    <g fill="#AA45FF">
+      <path d="M0 1v99c134.3 0 153.7-99 296-99H0Z" opacity=".5"></path>
+      <path d="M1000 4v86C833.3 90 833.3 3.6 666.7 3.6S500 90 333.3 90 166.7 4 0 4h1000Z" opacity=".5"></path>
+      <path d="M617 1v86C372 119 384 1 196 1h421Z" opacity=".5"></path>
+      <path d="M1000 0H0v52C62.5 28 125 4 250 4c250 0 250 96 500 96 125 0 187.5-24 250-48V0Z"></path>
+    </g>
+  </svg>
 
   <!-- New offers section -->
   <section class="section-extra-product">
@@ -234,10 +240,11 @@
     </div>
   </section>
 
+
+  <!-- product section -->
   <section class="products">
     <div class="heading-pro">
       <h1>Products</h1>
-      <a href="products.html" class="exp"> Explore All</a>
     </div>
 
     <div class="pro-cards">
@@ -476,6 +483,9 @@
         </div>
       </div>
     </div>
+    <div class="explore-button">
+      <a href="products.html" class="exp"> Explore All</a>
+    </div>
   </section>
 
   <footer class="ftr">
@@ -567,6 +577,32 @@
     <p>Designed by <a href="google.com">Nikhil Sharma</a></p>
   </div>
 
+  <script>
+    
+    document.getElementById('hamburger').addEventListener('click', function (event) {
+      event.stopPropagation(); // Prevent event bubbling
+      const menu = document.getElementById('navbar-menu');
+      menu.classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function () {
+        document.getElementById('navbar-menu').classList.remove('active');
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function (event) {
+      const menu = document.getElementById('navbar-menu');
+      const hamburger = document.getElementById('hamburger');
+
+      // Only close if click is outside both menu and hamburger
+      if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+        menu.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 
 </html>

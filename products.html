@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         * {
             margin: 0;
@@ -23,42 +23,120 @@
         }
 
         .hdr {
-            border: 2px solid white;
+            /* border: 2px solid white; */
             display: flex;
             flex-direction: column;
-            height: 15vh;
+            gap: 1rem;
         }
 
         .contain {
-            border: 2px solid red;
+            border-bottom: 2px solid white;
             display: flex;
+            justify-content: space-between;
+            opacity: 0.9;
+            background-color: #171d69;
+            align-items: center;
             color: white;
+            padding: 2rem;
         }
 
-        .back-button {
+        .name {
+            font-size: 3vw;
+            text-shadow: 2px 2px 5px blue;
+
+        }
+
+
+        .back-link {
             text-decoration: none;
             color: white;
-            border: 2px solid green;
-        }
-
-        .cart {
             border: 2px solid white;
+            font-size: 1.5vw;
+            position: relative;
+            left: 2.5vw;
+            padding: 0.7rem 1.2rem;
+            border-radius: 5px;
+        }
+
+
+        .cart a {
+            border: 2px solid white;
+            text-decoration: none;
+            color: white;
+            font-size: 1.5vw;
+            position: relative;
+            right: 2.5vw;
+            padding: 0.7rem 1.2rem;
+            border-radius: 5px;
+        }
+
+        .back-link:hover {
+            background-color: #5a6fd8;
+            box-shadow: 2px 2px 5px blueviolet;
+        }
+
+        .nav-link:hover {
+            background-color: #5a6fd8;
+            box-shadow: 2px 2px 5px blueviolet;
+        }
+
+
+        .search-bar {
+            display: flex;
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .search-bar input[type="text"] {
+            flex: 0 0 80%;
+            padding: 0.8rem 1rem;
+            border: none;
+            outline: none;
+            font-size: 1.1rem;
+            background: transparent;
+            color: #fff;
+        }
+
+        .search-bar .search-button {
+            flex: 0 0 20%;
+            background: #667eea;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: none;
+            transition: background 0.2s;
+        }
+
+        .search-bar .search-button:hover {
+            background: #764ba2;
         }
 
 
 
-        .search-result-info{
+        .search-result-info {
             color: white;
             border: 2px solid yellow;
+            font-size: 1.5rem;
+            padding-left: 1rem;
         }
 
-        .product-cards{
+        .product-cards {
             border: 2px solid orange;
             display: grid;
-            grid-template-columns: repeat(5,1fr);
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: auto;
             gap: 1px;
             justify-items: center;
-            overflow:hidden;
+            overflow: hidden;
         }
 
         .product-card {
@@ -314,6 +392,25 @@
                 flex-direction: column;
             }
         }
+
+        @media (max-width: 1350px) {
+            .product-cards {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 1090px) {
+            .product-cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 830px) {
+            .product-cards {
+                grid-template-columns: repeat(2,1fr);
+                gap: 2px;
+            }
+        }
     </style>
 </head>
 
@@ -334,7 +431,9 @@
         </div>
         <div class="search-bar">
             <input type="text" placeholder="Search products...">
-            <button type="submit">Search</button>
+            <div class="search-button">
+                Search
+            </div>
         </div>
     </header>
 
