@@ -113,7 +113,7 @@
             }
 
             .navbar-brand a {
-                font-size: 2.8vw;
+                font-size: 4vw;
             }
 
             .navbar-menu.active {
@@ -122,7 +122,14 @@
 
             .nav-item {
                 width: 100%;
+                /* border: 2px solid red; */
+                background-color: #4169E1;
+                border-radius: 2vw;
+                margin: 6vw;
+                padding: 2vw;
+                gap: 2vw;
                 text-align: center;
+            
             }
 
             .nav-link {
@@ -351,12 +358,12 @@
 
         .remove-btn {
             background: none;
-            border: none;
-            color: #e53e3e;
+            border: 2px solid rgb(4, 75, 52);
+            color: #5a1515;
             font-size: 1.2rem;
             cursor: pointer;
             padding: 8px;
-            border-radius: 50%;
+            border-radius: 10%;
             transition: all 0.3s ease;
         }
 
@@ -640,7 +647,7 @@
                                 <input type="number" class="quantity-input" value="2" min="1" max="10">
                                 <button class="quantity-btn increase-btn">+</button>
                             </div>
-                            <button class="remove-btn" title="Remove item">🗑️</button>
+                            <button class="remove-btn" title="Remove item">Remove</button>
                         </div>
                     </div>
                     <div class="item-controls">
@@ -661,7 +668,7 @@
                                 <input type="number" class="quantity-input" value="1" min="1" max="10">
                                 <button class="quantity-btn increase-btn">+</button>
                             </div>
-                            <button class="remove-btn" title="Remove item">🗑️</button>
+                            <button class="remove-btn" title="Remove item">Remove</button>
                         </div>
                     </div>
                     <div class="item-controls">
@@ -682,7 +689,7 @@
                                 <input type="number" class="quantity-input" value="1" min="1" max="10">
                                 <button class="quantity-btn increase-btn">+</button>
                             </div>
-                            <button class="remove-btn" title="Remove item">🗑️</button>
+                            <button class="remove-btn" title="Remove item">Remove</button>
                         </div>
                     </div>
                     <div class="item-controls">
@@ -724,16 +731,44 @@
                     <button class="promo-btn" id="promoBtn">Apply Code</button>
                 </div>
 
-                <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+                <button class="checkout-btn" id="checkoutBtn"><a href="buffer.html">Proceed to Checkout</a></button>
 
                 <div class="continue-shopping">
-                    <a href="#" id="continueShoppingBtn">← Continue Shopping</a>
+                    <a href="products.html" id="continueShoppingBtn">← Continue Shopping</a>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
+        document.getElementById('hamburger').addEventListener('click', function (event) {
+            event.stopPropagation(); // Prevent event bubbling
+            const menu = document.getElementById('navbar-menu');
+            menu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function () {
+                document.getElementById('navbar-menu').classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function (event) {
+            const menu = document.getElementById('navbar-menu');
+            const hamburger = document.getElementById('hamburger');
+
+            // Only close if click is outside both menu and hamburger
+            if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+
+
+
+
+
         // Cart functionality
         class ShoppingCart {
             constructor() {
