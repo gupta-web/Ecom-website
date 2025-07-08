@@ -63,8 +63,59 @@
             discover a world of possiblilities!
           </p>
         </div>
-        <div class="section-hero-image" data-aos="fade-up" data-aos-delay="600">
+        <!-- <div class="section-hero-image" data-aos="fade-up" data-aos-delay="600">
           <img src="./images/heroSection.png" alt="alternative not available">
+        </div> -->
+        <div class="container">
+          <div class="slider-container">
+            <div class="slide slide-1 active">
+              <div class="slide-content">
+                <h2 class="slide-title">Big Shopping Days</h2>
+                <p class="slide-subtitle">Up to 80% off on Electronics, Fashion & More</p>
+              </div>
+            </div>
+
+            <div class="slide slide-2">
+              <div class="slide-content">
+                <h2 class="slide-title">Fashion Festival</h2>
+                <p class="slide-subtitle">Trendy Styles Starting at ₹299</p>
+              </div>
+            </div>
+
+            <div class="slide slide-3">
+              <div class="slide-content">
+                <h2 class="slide-title">Home & Kitchen</h2>
+                <p class="slide-subtitle">Transform Your Home with Amazing Deals</p>
+              </div>
+            </div>
+
+            <div class="slide slide-4">
+              <div class="slide-content">
+                <h2 class="slide-title">Beauty & Personal Care</h2>
+                <p class="slide-subtitle">Premium Brands at Unbeatable Prices</p>
+              </div>
+            </div>
+
+            <div class="slide slide-5">
+              <div class="slide-content">
+                <h2 class="slide-title">Sports & Fitness</h2>
+                <p class="slide-subtitle">Gear Up for Your Fitness Journey</p>
+              </div>
+            </div>
+
+            <button class="nav-arrow prev" onclick="changeSlide(-1)">❮</button>
+            <button class="nav-arrow next" onclick="changeSlide(1)">❯</button>
+
+            <div class="dots-container">
+              <div class="dot active" onclick="currentSlide(1)"></div>
+              <div class="dot" onclick="currentSlide(2)"></div>
+              <div class="dot" onclick="currentSlide(3)"></div>
+              <div class="dot" onclick="currentSlide(4)"></div>
+              <div class="dot" onclick="currentSlide(5)"></div>
+            </div>
+
+            <div class="progress-bar"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -578,7 +629,7 @@
   </div>
 
   <script>
-    
+
     document.getElementById('hamburger').addEventListener('click', function (event) {
       event.stopPropagation(); // Prevent event bubbling
       const menu = document.getElementById('navbar-menu');
@@ -601,6 +652,71 @@
       if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
         menu.classList.remove('active');
       }
+    });
+
+
+
+
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const totalSlides = slides.length;
+    let autoSlideInterval;
+
+    function showSlide(index) {
+      // Hide all slides
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+
+      // Show current slide
+      slides[index].classList.add('active');
+      dots[index].classList.add('active');
+
+      // Reset progress bar animation
+      const progressBar = document.querySelector('.progress-bar');
+      progressBar.style.animation = 'none';
+      progressBar.offsetHeight; // Trigger reflow
+      progressBar.style.animation = 'progress 3s linear infinite';
+    }
+
+    function nextSlide() {
+      currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+      showSlide(currentSlideIndex);
+    }
+
+    function changeSlide(direction) {
+      currentSlideIndex = (currentSlideIndex + direction + totalSlides) % totalSlides;
+      showSlide(currentSlideIndex);
+      resetAutoSlide();
+    }
+
+    function currentSlide(index) {
+      currentSlideIndex = index - 1;
+      showSlide(currentSlideIndex);
+      resetAutoSlide();
+    }
+
+    function startAutoSlide() {
+      autoSlideInterval = setInterval(nextSlide, 3000);
+    }
+
+    function resetAutoSlide() {
+      clearInterval(autoSlideInterval);
+      startAutoSlide();
+    }
+
+    // Initialize
+    showSlide(currentSlideIndex);
+    startAutoSlide();
+
+    // Pause auto-slide on hover
+    const sliderContainer = document.querySelector('.slider-container');
+    sliderContainer.addEventListener('mouseenter', () => {
+      clearInterval(autoSlideInterval);
+    });
+
+    sliderContainer.addEventListener('mouseleave', () => {
+      startAutoSlide();
     });
   </script>
 </body>
