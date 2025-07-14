@@ -41,7 +41,7 @@
         </li>
         <li class="nav-item">
           <a href="addToCart.html" class="nav-link ckt" id="cktValue">
-            <i class="fa-solid fa-cart-shopping"></i> 0
+            <i class="fa-solid fa-cart-shopping">0</i>
           </a>
         </li>
       </ul>
@@ -299,240 +299,56 @@
     </div>
 
     <div class="pro-cards">
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=280&fit=crop&crop=center"
-            alt="Nike Air Max Sneakers">
-          <div class="sale-badge">SALE</div>
-        </div>
-
-        <div class="product-info">
-          <div class="product-category">Footwear</div>
-          <h2 class="product-title">Nike Air Max Revolution</h2>
-          <p class="product-description">Experience ultimate comfort and style with these premium running shoes
-            featuring advanced cushioning technology.</p>
-
-          <div class="rating">
-            <div class="stars">★★★★☆</div>
-            <span class="rating-text">4.2 (128 reviews)</span>
+      <!-- first card -->
+      <template id="product-card-template">
+        <div class="product-card" id="cardID">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=280&fit=crop&crop=center"
+              alt="Nike Air Max Sneakers">
+            <div class="sale-badge">SALE</div>
           </div>
 
-          <div class="quick-info">
-            <div class="info-item">
-              <div class="info-label">Quantity</div>
-              <div class="quantity-controls">
-                <button class="qty-btn" onclick="decreaseQty()">-</button>
-                <span class="qty-value" id="quantity">1</span>
-                <button class="qty-btn" onclick="increaseQty()">+</button>
+          <div class="product-info">
+            <div class="product-category">Footwear</div>
+            <h2 class="product-title">Nike Air Max Revolution</h2>
+            <p class="product-description">Experience ultimate comfort and style with these premium running shoes
+              featuring advanced cushioning technology.</p>
+
+            <div class="rating">
+              <div class="stars">★★★★☆</div>
+              <span class="rating-text">4.2 (128 reviews)</span>
+            </div>
+
+            <div class="quick-info">
+              <div class="info-item">
+                <div class="info-label">Quantity</div>
+                <div class="quantity-controls">
+                  <button class="qty-btn decre">-</button>
+                  <span class="qty-value" id="quantity" data-quantity="1">1</span>
+                  <button class="qty-btn incre">+</button>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-label">Stock</div>
+                <div class="info-value">In Stock</div>
               </div>
             </div>
-            <div class="info-item">
-              <div class="info-label">Stock</div>
-              <div class="info-value">In Stock</div>
-            </div>
-          </div>
 
-          <div class="price-section">
-            <div class="price-container">
-              <span class="current-price">$89.99</span>
-              <span class="original-price">$129.99</span>
-            </div>
-            <div class="discount">31% OFF</div>
-          </div>
-
-          <div class="action-buttons">
-            <button class="btn btn-primary full-width">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=280&fit=crop&crop=center"
-            alt="Nike Air Max Sneakers">
-          <div class="sale-badge">SALE</div>
-        </div>
-
-        <div class="product-info">
-          <div class="product-category">Footwear</div>
-          <h2 class="product-title">Nike Air Max Revolution</h2>
-          <p class="product-description">Experience ultimate comfort and style with these premium running shoes
-            featuring advanced cushioning technology.</p>
-
-          <div class="rating">
-            <div class="stars">★★★★☆</div>
-            <span class="rating-text">4.2 (128 reviews)</span>
-          </div>
-
-          <div class="quick-info">
-            <div class="info-item">
-              <div class="info-label">Quantity</div>
-              <div class="quantity-controls">
-                <button class="qty-btn" onclick="decreaseQty()">-</button>
-                <span class="qty-value" id="quantity">1</span>
-                <button class="qty-btn" onclick="increaseQty()">+</button>
+            <div class="price-section">
+              <div class="price-container">
+                <span class="current-price">$89.99</span>
+                <span class="original-price">$129.99</span>
               </div>
+              <div class="discount">31% OFF</div>
             </div>
-            <div class="info-item">
-              <div class="info-label">Stock</div>
-              <div class="info-value">In Stock</div>
-            </div>
-          </div>
 
-          <div class="price-section">
-            <div class="price-container">
-              <span class="current-price">$89.99</span>
-              <span class="original-price">$129.99</span>
+            <div class="action-buttons">
+              <button class="btn btn-primary full-width">Add to Cart</button>
             </div>
-            <div class="discount">31% OFF</div>
-          </div>
-
-          <div class="action-buttons">
-            <button class="btn btn-primary full-width">Add to Cart</button>
           </div>
         </div>
-      </div>
+      </template>
 
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=280&fit=crop&crop=center"
-            alt="Nike Air Max Sneakers">
-          <div class="sale-badge">SALE</div>
-        </div>
-
-        <div class="product-info">
-          <div class="product-category">Footwear</div>
-          <h2 class="product-title">Nike Air Max Revolution</h2>
-          <p class="product-description">Experience ultimate comfort and style with these premium running shoes
-            featuring advanced cushioning technology.</p>
-
-          <div class="rating">
-            <div class="stars">★★★★☆</div>
-            <span class="rating-text">4.2 (128 reviews)</span>
-          </div>
-
-          <div class="quick-info">
-            <div class="info-item">
-              <div class="info-label">Quantity</div>
-              <div class="quantity-controls">
-                <button class="qty-btn" onclick="decreaseQty()">-</button>
-                <span class="qty-value" id="quantity">1</span>
-                <button class="qty-btn" onclick="increaseQty()">+</button>
-              </div>
-            </div>
-            <div class="info-item">
-              <div class="info-label">Stock</div>
-              <div class="info-value">In Stock</div>
-            </div>
-          </div>
-
-          <div class="price-section">
-            <div class="price-container">
-              <span class="current-price">$89.99</span>
-              <span class="original-price">$129.99</span>
-            </div>
-            <div class="discount">31% OFF</div>
-          </div>
-
-          <div class="action-buttons">
-            <button class="btn btn-primary full-width">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=280&fit=crop&crop=center"
-            alt="Nike Air Max Sneakers">
-          <div class="sale-badge">SALE</div>
-        </div>
-
-        <div class="product-info">
-          <div class="product-category">Footwear</div>
-          <h2 class="product-title">Nike Air Max Revolution</h2>
-          <p class="product-description">Experience ultimate comfort and style with these premium running shoes
-            featuring advanced cushioning technology.</p>
-
-          <div class="rating">
-            <div class="stars">★★★★☆</div>
-            <span class="rating-text">4.2 (128 reviews)</span>
-          </div>
-
-          <div class="quick-info">
-            <div class="info-item">
-              <div class="info-label">Quantity</div>
-              <div class="quantity-controls">
-                <button class="qty-btn" onclick="decreaseQty()">-</button>
-                <span class="qty-value" id="quantity">1</span>
-                <button class="qty-btn" onclick="increaseQty()">+</button>
-              </div>
-            </div>
-            <div class="info-item">
-              <div class="info-label">Stock</div>
-              <div class="info-value">In Stock</div>
-            </div>
-          </div>
-
-          <div class="price-section">
-            <div class="price-container">
-              <span class="current-price">$89.99</span>
-              <span class="original-price">$129.99</span>
-            </div>
-            <div class="discount">31% OFF</div>
-          </div>
-
-          <div class="action-buttons">
-            <button class="btn btn-primary full-width">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=280&fit=crop&crop=center"
-            alt="Nike Air Max Sneakers">
-          <div class="sale-badge">SALE</div>
-        </div>
-
-        <div class="product-info">
-          <div class="product-category">Footwear</div>
-          <h2 class="product-title">Nike Air Max Revolution</h2>
-          <p class="product-description">Experience ultimate comfort and style with these premium running shoes
-            featuring advanced cushioning technology.</p>
-
-          <div class="rating">
-            <div class="stars">★★★★☆</div>
-            <span class="rating-text">4.2 (128 reviews)</span>
-          </div>
-
-          <div class="quick-info">
-            <div class="info-item">
-              <div class="info-label">Quantity</div>
-              <div class="quantity-controls">
-                <button class="qty-btn" onclick="decreaseQty()">-</button>
-                <span class="qty-value" id="quantity">1</span>
-                <button class="qty-btn" onclick="increaseQty()">+</button>
-              </div>
-            </div>
-            <div class="info-item">
-              <div class="info-label">Stock</div>
-              <div class="info-value">In Stock</div>
-            </div>
-          </div>
-
-          <div class="price-section">
-            <div class="price-container">
-              <span class="current-price">$89.99</span>
-              <span class="original-price">$129.99</span>
-            </div>
-            <div class="discount">31% OFF</div>
-          </div>
-
-          <div class="action-buttons">
-            <button class="btn btn-primary full-width">Add to Cart</button>
-          </div>
-        </div>
-      </div>
     </div>
     <div class="explore-button">
       <a href="products.html" class="exp"> Explore All</a>
@@ -628,97 +444,7 @@
     <p>Designed by <a href="google.com">Nikhil Sharma</a></p>
   </div>
 
-  <script>
-
-    document.getElementById('hamburger').addEventListener('click', function (event) {
-      event.stopPropagation(); // Prevent event bubbling
-      const menu = document.getElementById('navbar-menu');
-      menu.classList.toggle('active');
-    });
-
-    // Close menu when clicking on a link
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', function () {
-        document.getElementById('navbar-menu').classList.remove('active');
-      });
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', function (event) {
-      const menu = document.getElementById('navbar-menu');
-      const hamburger = document.getElementById('hamburger');
-
-      // Only close if click is outside both menu and hamburger
-      if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
-        menu.classList.remove('active');
-      }
-    });
-
-
-
-
-    let currentSlideIndex = 0;
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-    const totalSlides = slides.length;
-    let autoSlideInterval;
-
-    function showSlide(index) {
-      // Hide all slides
-      slides.forEach(slide => slide.classList.remove('active'));
-      dots.forEach(dot => dot.classList.remove('active'));
-
-      // Show current slide
-      slides[index].classList.add('active');
-      dots[index].classList.add('active');
-
-      // Reset progress bar animation
-      const progressBar = document.querySelector('.progress-bar');
-      progressBar.style.animation = 'none';
-      progressBar.offsetHeight; // Trigger reflow
-      progressBar.style.animation = 'progress 3s linear infinite';
-    }
-
-    function nextSlide() {
-      currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
-      showSlide(currentSlideIndex);
-    }
-
-    function changeSlide(direction) {
-      currentSlideIndex = (currentSlideIndex + direction + totalSlides) % totalSlides;
-      showSlide(currentSlideIndex);
-      resetAutoSlide();
-    }
-
-    function currentSlide(index) {
-      currentSlideIndex = index - 1;
-      showSlide(currentSlideIndex);
-      resetAutoSlide();
-    }
-
-    function startAutoSlide() {
-      autoSlideInterval = setInterval(nextSlide, 3000);
-    }
-
-    function resetAutoSlide() {
-      clearInterval(autoSlideInterval);
-      startAutoSlide();
-    }
-
-    // Initialize
-    showSlide(currentSlideIndex);
-    startAutoSlide();
-
-    // Pause auto-slide on hover
-    const sliderContainer = document.querySelector('.slider-container');
-    sliderContainer.addEventListener('mouseenter', () => {
-      clearInterval(autoSlideInterval);
-    });
-
-    sliderContainer.addEventListener('mouseleave', () => {
-      startAutoSlide();
-    });
-  </script>
+  <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>
