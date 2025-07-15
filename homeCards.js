@@ -1,5 +1,6 @@
 import { addToCart } from "./addToCart";
 import { QuantityControl } from "./QuantityControl";
+import { showToast } from "./showToast";
 
 const pro_template = document.querySelector('#product-card-template');
 const pro_container = document.querySelector('.pro-cards');
