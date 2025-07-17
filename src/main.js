@@ -1,10 +1,13 @@
 import "./style.css"
 import products from "../public/products.json"
-import { showProductsContainer } from "../homeCards"
+import { showProductsContainer } from "./homeCards"
+import { updateCartValue } from "./updateCartValue"
+import { getCartProduct } from "./getCartProduct"
 
 //call the function to display all the product as card
-showProductsContainer(products)
-
+showProductsContainer(products,0);
+let valLocalStorage = getCartProduct();
+updateCartValue(valLocalStorage);
 
 
 

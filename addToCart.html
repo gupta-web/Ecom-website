@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Shopping Cart - Your Items</title>
     <style>
         * {
@@ -50,17 +53,24 @@
             padding: 0;
             margin: 0;
             flex: 1;
+            gap: 0.5vw;
         }
 
         .nav-item {
-            margin: 1rem;
+            margin: 1.5rem;
             padding: 0.5rem;
             font-size: 1.2rem;
+            background-color: #4169E1;
+            border-radius: 5px;
+
+
+
+            
         }
 
         .nav-item a {
             display: inline-block;
-            padding: 0.5rem 1.5rem;
+            padding: 0.2rem 1rem;
             background: var(--primary-color);
             color: #fff;
             border: none;
@@ -73,9 +83,8 @@
             cursor: pointer;
         }
 
-        .nav-item a:hover,
-        .nav-item a:focus {
-            background: var(--accent-color);
+        .nav-item:hover,
+        .nav-item:focus {
             color: #fff;
             box-shadow: var(--shadow-md);
             transform: translateY(-3px);
@@ -622,7 +631,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="addToCart.html" class="nav-link ckt" id="cktValue">
-                        <i class="fa-solid fa-cart-shopping"></i> 0
+                        <i class="fa-solid fa-cart-shopping"></i> 
                     </a>
                 </li>
             </ul>
@@ -717,7 +726,7 @@
             </div>
         </div>
     </div>
-    <script type="module" src="showATC.js"></script>
+    <script type="module" src="./src/showATC.js"></script>
 </body>
 
 </html>

@@ -1,12 +1,14 @@
 import { showHam } from "./hamburger";
-import products from "./public/products.json"
+import products from "../public/products.json"
 import { getCartProduct } from "./getCartProduct";
 import { fetchQualityFromCartLS } from "./fetchQualityFromCartLS";
 import { removeProductCart } from "./removeProductCart";
 import { increDecre } from "./increDecre";
 import { showATCT } from "./showATCT";
+import { updateCartValue } from "./updateCartValue";
 
 let getCardProductLS = getCartProduct();
+updateCartValue(getCardProductLS);
 let filterProducts = products.filter((currProduct) => {
     return getCardProductLS.some((currEle) => String(currProduct.id) == String(currEle.id));
 });
