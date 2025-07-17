@@ -10,7 +10,7 @@ This is a **responsive multipage eCommerce website** built using **HTML, CSS, an
 
 ## 🌐 Live Demo
 
-> You can view a live demo here (if deployed):
+> You can view a live demo here:
 > [🔗 https://youtu.be/3CzIhoFU1oY](#)
 
 ---
@@ -26,7 +26,7 @@ ecommerce-website/
 ├── cart.html               # Shopping cart page
 ├── checkout.html           # Checkout page
 │
-├── /css/
+├── /src/
 │   └── style.css           # All styling rules
 │
 ├── /src/
