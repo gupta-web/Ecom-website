@@ -1,5 +1,5 @@
 import { showHam } from "./hamburger";
-import products from "../public/products.json"
+import products from "../../public/products.json"
 import { getCartProduct } from "./getCartProduct";
 import { fetchQualityFromCartLS } from "./fetchQualityFromCartLS";
 import { removeProductCart } from "./removeProductCart";

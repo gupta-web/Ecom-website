@@ -1,14 +1,24 @@
 import "./style.css"
-import products from "../public/products.json"
+import products from "../../public/products.json"
 import { showProductsContainer } from "./homeCards"
 import { updateCartValue } from "./updateCartValue"
 import { getCartProduct } from "./getCartProduct"
 
+
+// fetch('http://localhost:3000/api/data')
+//   .then(response => response.json())
+//   .then(data => {
+//     console.log('Products data:', data);
+//     showProductsContainer(data,0);
+    
+//   })
+//   .catch(error => console.error('Error:', error));
+
 //call the function to display all the product as card
+// console.log('Products data:', products);
 showProductsContainer(products,0);
 let valLocalStorage = getCartProduct();
 updateCartValue(valLocalStorage);
-
 
 
 
