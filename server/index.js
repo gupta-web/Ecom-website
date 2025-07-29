@@ -13,10 +13,10 @@ const PORT = process.env.PORT || 3001
 
 // Environment variables with defaults
 const requiredEnvVars = {
-  CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME || "daq7zegts",
-  CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY || "451399825177962",
-  CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET || "lqwc2ASQ2ZAmmUDrOyMGhGP1oqU",
-  MONGODB_URI: process.env.MONGODB_URI || "mongodb+srv://golu:golu1234@cluster0.i7alpbh.mongodb.net/",
+  CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME || "",
+  CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY || "",
+  CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET || "",
+  MONGODB_URI: process.env.MONGODB_URI || "",
 }
 
 // Configure Cloudinary
