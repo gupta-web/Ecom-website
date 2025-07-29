@@ -502,9 +502,9 @@ app.post("/api/orders", async (req, res) => {
       Address: Address || "",
       "Mobile Number": MobileNumber || null,
       Type: Type || "r",
-      cart: cart || [],
-      Status: "pending",
-      createdAt: new Date(),
+      cart: cart || [], // cart is already an object/array, no need to parse
+      Status: Status || "pending", // Use Status from req.body if provided, else default
+      actionDate: new Date(), // Added actionDate field
       updatedAt: new Date(),
     }
 

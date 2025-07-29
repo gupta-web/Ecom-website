@@ -1,15 +1,16 @@
 import { getCartProduct } from "./getCartProduct"
 
-export const fetchQualityFromCartLS = (id,price)=>{
-    let localStorageData = getCartProduct()
+export const fetchQualityFromCartLS = (productId, price) => {
+  // Changed 'id' to 'productId'
+  const localStorageData = getCartProduct()
 
-    let existingProduct = localStorageData.find((currProduct)=> currProduct.id==id)
-    let quantity = 1;
+  const existingProduct = localStorageData.find((currProduct) => currProduct.productId == productId) // Check for productId
+  let quantity = 1
 
-    if(existingProduct){
-        quantity = existingProduct.quantity;
-        price = existingProduct.price;
-    }
+  if (existingProduct) {
+    quantity = existingProduct.quantity
+    price = existingProduct.price
+  }
 
-    return {quantity,price};
-};
+  return { quantity, price }
+}

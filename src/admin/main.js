@@ -74,13 +74,6 @@ function switchTab(tabName) {
 
 
 
-
-
-
-
-
-
-
 // Product Management Functions
 async function loadProducts() {
   try {
@@ -1255,76 +1248,28 @@ function downloadOrderRequest(orderId) {
   }
 
   const totalAmount = Array.isArray(order.cart)
-    ? order.cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
+    ? order.cart.reduce((sum, item) => sum + item.price, 0)
     : 0;
 
-  const cartDetails =
-    Array.isArray(order.cart) && order.cart.length > 0
-      ? order.cart
-          .map((item, index) => {
-            const product = products.find((p) => p.productId == item.id);
-            const unitPrice =
-              item.quantity > 0
-                ? (item.price / item.quantity).toFixed(2)
-                : "0.00";
+  const cartDetails = Array.isArray(order.cart) && order.cart.length > 0
+  ? order.cart.map((item) => {
+      const product = products.find((p) => p.productId == item.id);
+      const unitPrice =
+        item.quantity > 0
+          ? parseFloat((item.price / item.quantity).toFixed(2))
+          : 0.0;
 
-            return `${index + 1}. ${
-              product ? product.name : "Unknown Product"
-            } (ID: ${item.id})
-   Company: ${product ? product.company : "N/A"}
-   Quantity: ${item.quantity}
-   Unit Price: $${unitPrice}
-   Total: $${item.price.toFixed(2)}`;
-          })
-          .join("\n\n")
-      : "No items in cart";
+      return {
+        product: Number(item.id),
+        productName: product?.name || "Unknown Product",
+        quantity: item.quantity,
+        price: unitPrice,
+        totalPrice: item.price
+      };
+    })
+  : [];
 
-  const content = `
-ORDER DOCUMENT
-==============
-
-Order ID: ${order._id}
-Status: ${(order.Status || "pending").toUpperCase()}
-Date: ${new Date().toLocaleString()}
-
-CUSTOMER INFORMATION:
---------------------
-Name: ${order.Name || "N/A"}
-Address: ${order.Address || "N/A"}
-Mobile Number: ${order["Mobile Number"] || "N/A"}
-Order Type: ${
-    order.Type === "r" ? "Retail" : order.Type === "w" ? "Wholesale" : "Unknown"
-  }
-
-CART ITEMS:
------------
-${cartDetails}
-
-ORDER SUMMARY:
---------------
-Total Items: ${Array.isArray(order.cart) ? order.cart.length : 0}
-Total Amount: $${totalAmount.toFixed(2)}
-
-This document confirms that the above order has been ${
-    order.Status || "processed"
-  }.
-
-Generated on: ${new Date().toLocaleString()}
-  `.trim();
-
-  const blob = new Blob([content], { type: "text/plain" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = `order_${order._id}_${(order.Name || "customer").replace(
-    /\s+/g,
-    "_"
-  )}_${Date.now()}.txt`;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-
+  generateSampleInvoice(order.Name, order.Address || "N/A", String(order["Mobile Number"]) || "N/A",cartDetails, totalAmount);
   alert("Order document downloaded successfully!");
 }
 
@@ -1517,7 +1462,7 @@ window.editProduct = (id) => alert(`Edit product ${id} - Feature coming soon!`);
 window.deleteProduct = (id) =>
   alert(`Delete product ${id} - Feature coming soon!`);
 
-function generateInvoicePDF(invoiceData) {
+function generateInvoicePDF(invoiceData,total) {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
 
@@ -1649,6 +1594,7 @@ function generateInvoicePDF(invoiceData) {
 
     // Handle long descriptions
     const pro = products.find(p => p.productId === item.product)
+    console.log("Product found:", pro); // Debug log
     const description = doc.splitTextToSize(pro.company+" " +pro.name, 95);
     doc.text(description[0], 20, yPos);
     doc.text(item.quantity.toString(), 120, yPos);
@@ -1679,7 +1625,7 @@ function generateInvoicePDF(invoiceData) {
   doc.text(`${taxAmount.toFixed(2)}`, totalsX + 45, yPos + 5);
 
   // Total
-  const total = subtotal + taxAmount;
+  // const total = subtotal + taxAmount;
   yPos += 8;
   doc.setFont("helvetica", "bold");
   doc.setFontSize(13);
@@ -1717,9 +1663,10 @@ function generateInvoicePDF(invoiceData) {
 }
 
 // Sample invoice generator
-let number = 0;
+let number = Math.random() * 10000;
 function generateSampleInvoice(customerName, customerAddress, customerMobile,validItems,total) {
   const today = new Date();
+  let number = (Math.random() * 10000).toFixed(0);
   const formattedDate = today.toISOString().split('T')[0];
   const sampleData = {
     company: {
@@ -1729,7 +1676,7 @@ function generateSampleInvoice(customerName, customerAddress, customerMobile,val
       email: "info@techcorp.com",
     },
     invoice: {
-      number: "INV-2025-000" + ++number,
+      number: "INV-2025-" + number,
       date: formattedDate,
       dueDate: formattedDate,
       paymentTerms: "By Cash",
@@ -1741,12 +1688,11 @@ function generateSampleInvoice(customerName, customerAddress, customerMobile,val
       email: "xyz@gmail.com",
     },
     items: validItems,
-    taxRate: 8.5,
+    taxRate: 18,
     notes:
       "Thank you for choosing Gupta Electronics! This invoice is generated for demonstration purposes only.",
   };
 
-  console.log("Sample Invoice Data:", validItems);
   // Display sample data
   document.getElementById("sampleData").textContent = JSON.stringify(
     sampleData,
@@ -1755,5 +1701,5 @@ function generateSampleInvoice(customerName, customerAddress, customerMobile,val
   );
 
   // Generate PDF
-  generateInvoicePDF(sampleData);
+  generateInvoicePDF(sampleData,total);
 }

@@ -1,29 +1,28 @@
-import { getCartProduct } from "./getCartProduct";
-import { showToast } from "./showToast";
-import { updateCartValue } from "./updateCartValue";
+import { getCartProduct } from "./getCartProduct"
+import { showToast } from "./showToast" // Assuming this file exists
+import { updateCartValue } from "./updateCartValue"
 
+export const addToCart = (event, productId, stock, price) => {
+  // Changed 'id' to 'productId'
+  const valLocalStorage = getCartProduct()
 
-export const addToCart = (event, id, stock, price) => {
-    let valLocalStorage = getCartProduct();
+  const currElement = document.querySelector(`#card${productId}`) // Use productId
+  const quantity = Number.parseInt(currElement.querySelector(".qty-value").innerText, 10)
+  const p = price * quantity
 
-    const currElement = document.querySelector(`#card${id}`);
-    let quantity = parseInt(currElement.querySelector('.qty-value').innerText, 10);
-    let p = price * quantity;
+  const idStr = String(productId) // Use productId
 
-    const idStr = String(id);
+  const existing = valLocalStorage.find((item) => String(item.productId) === idStr) // Check for productId
+  if (existing) {
+    existing.quantity = quantity
+    existing.price = p
+  } else {
+    valLocalStorage.push({ productId: idStr, quantity, price: p }) // Store productId
+  }
 
-    const existing = valLocalStorage.find(item => String(item.id) === idStr);
-    if (existing) {
-        existing.quantity = quantity;
-        existing.price = p;
-    } else {
-        valLocalStorage.push({ id: idStr, quantity, price: p });
-    }
+  // Save updated cart
+  localStorage.setItem("cartProductLS", JSON.stringify(valLocalStorage))
 
-    // Save updated cart
-    localStorage.setItem("cartProductLS", JSON.stringify(valLocalStorage));
-
-
-    updateCartValue(valLocalStorage);
-    showToast("add",String(id));
-};
+  updateCartValue(valLocalStorage)
+  showToast("add", String(productId)) // Use productId
+}
