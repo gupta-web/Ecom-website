@@ -13,10 +13,10 @@ const PORT = process.env.PORT || 3001
 
 // Environment variables with defaults
 const requiredEnvVars = {
-  CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME || "dsxy5d7lk",
-  CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY || "144817236893752",
-  CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET || "6mOO4emOolw_DOjCr0y9n6_A8sQ",
-  MONGODB_URI: process.env.MONGODB_URI || "mongodb+srv://guptaelectr:golu@1234@cluster0.wyklpcr.mongodb.net",
+  CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME || "daq7zegts",
+  CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY || "451399825177962",
+  CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET || "lqwc2ASQ2ZAmmUDrOyMGhGP1oqU",
+  MONGODB_URI: process.env.MONGODB_URI || "mongodb+srv://golu:golu1234@cluster0.i7alpbh.mongodb.net/",
 }
 
 // Configure Cloudinary
@@ -340,7 +340,7 @@ app.get("/api/orders", async (req, res) => {
     dbClient = new MongoClient(requiredEnvVars.MONGODB_URI)
     await dbClient.connect()
 
-    const db = dbClient.db("gupta-electronics")
+    const db = dbClient.db("inventory-database")
     const collection = db.collection("orders")
 
     const orders = await collection.find({}).sort({ createdAt: -1 }).toArray()
@@ -381,7 +381,7 @@ app.get("/api/orders/:id", async (req, res) => {
     dbClient = new MongoClient(requiredEnvVars.MONGODB_URI)
     await dbClient.connect()
 
-    const db = dbClient.db("gupta-electronics")
+    const db = dbClient.db("inventory-database")
     const collection = db.collection("orders")
 
     const order = await collection.findOne({ _id: new ObjectId(orderId) })
@@ -438,7 +438,7 @@ app.patch("/api/orders/:id", async (req, res) => {
     dbClient = new MongoClient(requiredEnvVars.MONGODB_URI)
     await dbClient.connect()
 
-    const db = dbClient.db("gupta-electronics")
+    const db = dbClient.db("inventory-database")
     const collection = db.collection("orders")
 
     const updateData = {
@@ -493,7 +493,7 @@ app.post("/api/orders", async (req, res) => {
     dbClient = new MongoClient(requiredEnvVars.MONGODB_URI)
     await dbClient.connect()
 
-    const db = dbClient.db("gupta-electronics")
+    const db = dbClient.db("inventory-database")
     const collection = db.collection("orders")
 
     // Prepare order data to match your structure
@@ -502,9 +502,9 @@ app.post("/api/orders", async (req, res) => {
       Address: Address || "",
       "Mobile Number": MobileNumber || null,
       Type: Type || "r",
-      cart: cart || [], // cart is already an object/array, no need to parse
-      Status: "pending", // Use Status from req.body if provided, else default
-      actionDate: new Date(), // Added actionDate field
+      cart: cart || [],
+      Status: "pending",
+      createdAt: new Date(),
       updatedAt: new Date(),
     }
 
@@ -549,7 +549,6 @@ app.use((error, req, res, next) => {
     error: error.message || "Something went wrong!",
   })
 })
-
 
 // Test MongoDB connection on startup
 async function testDatabaseConnection() {
