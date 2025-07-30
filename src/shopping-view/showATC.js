@@ -27,7 +27,12 @@ async function loadProducts() {
   }
 }
 
-products = await loadProducts();
+async function onAppLoad() {
+  const products = await loadProducts();
+}
+
+document.addEventListener("DOMContentLoaded", onAppLoad);
+
 
 const filterProducts = products.filter((currProduct) => {
   return getCardProductLS.some(

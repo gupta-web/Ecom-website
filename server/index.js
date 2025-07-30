@@ -13,10 +13,10 @@ const PORT = process.env.PORT || 3001
 
 // Environment variables with defaults
 const requiredEnvVars = {
-  CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME || "",
-  CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY || "",
-  CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET || "",
-  MONGODB_URI: process.env.MONGODB_URI || "",
+  CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME || "dsxy5d7lk",
+  CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY || "144817236893752",
+  CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET || "6mOO4emOolw_DOjCr0y9n6_A8sQ",
+  MONGODB_URI: process.env.MONGODB_URI || "mongodb+srv://guptaelectr:golu@1234@cluster0.wyklpcr.mongodb.net",
 }
 
 // Configure Cloudinary
@@ -503,7 +503,7 @@ app.post("/api/orders", async (req, res) => {
       "Mobile Number": MobileNumber || null,
       Type: Type || "r",
       cart: cart || [], // cart is already an object/array, no need to parse
-      Status: Status || "pending", // Use Status from req.body if provided, else default
+      Status: "pending", // Use Status from req.body if provided, else default
       actionDate: new Date(), // Added actionDate field
       updatedAt: new Date(),
     }

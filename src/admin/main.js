@@ -1630,7 +1630,7 @@ function generateInvoicePDF(invoiceData,total) {
   doc.setFont("helvetica", "bold");
   doc.setFontSize(13);
   doc.text("Total:", totalsX, yPos + 5);
-  doc.text(`${total.toFixed(2)}`, totalsX + 45, yPos + 5);
+  doc.text(`${subtotal.toFixed(2)}`, totalsX + 45, yPos + 5);
 
   // Notes section
   if (notes) {

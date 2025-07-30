@@ -21,11 +21,16 @@ async function loadProducts() {
   }
 }
 
-products = await loadProducts()
-console.log("Products loaded:", products)
-showProductsContainer(products, 0)
-const valLocalStorage = getCartProduct()
-updateCartValue(valLocalStorage)
+async function onAppLoad() {
+  const products = await loadProducts();
+  console.log("Products loaded:", products);
+  showProductsContainer(products, 0);
+
+  const valLocalStorage = getCartProduct();
+  updateCartValue(valLocalStorage);
+}
+
+document.addEventListener("DOMContentLoaded", onAppLoad);
 
 //This code is for Hamburger
 document.getElementById("hamburger").addEventListener("click", (event) => {
