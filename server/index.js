@@ -340,7 +340,7 @@ app.get("/api/orders", async (req, res) => {
     dbClient = new MongoClient(requiredEnvVars.MONGODB_URI)
     await dbClient.connect()
 
-    const db = dbClient.db("inventory-database")
+    const db = dbClient.db("gupta-electronics")
     const collection = db.collection("orders")
 
     const orders = await collection.find({}).sort({ createdAt: -1 }).toArray()
@@ -381,7 +381,7 @@ app.get("/api/orders/:id", async (req, res) => {
     dbClient = new MongoClient(requiredEnvVars.MONGODB_URI)
     await dbClient.connect()
 
-    const db = dbClient.db("inventory-database")
+    const db = dbClient.db("gupta-electronics")
     const collection = db.collection("orders")
 
     const order = await collection.findOne({ _id: new ObjectId(orderId) })
@@ -409,6 +409,7 @@ app.get("/api/orders/:id", async (req, res) => {
     }
   }
 })
+
 //for updating order status
 app.patch("/api/orders/:id", async (req, res) => {
   let dbClient = null
@@ -438,7 +439,7 @@ app.patch("/api/orders/:id", async (req, res) => {
     dbClient = new MongoClient(requiredEnvVars.MONGODB_URI)
     await dbClient.connect()
 
-    const db = dbClient.db("inventory-database")
+    const db = dbClient.db("gupta-electronics")
     const collection = db.collection("orders")
 
     const updateData = {
@@ -493,7 +494,7 @@ app.post("/api/orders", async (req, res) => {
     dbClient = new MongoClient(requiredEnvVars.MONGODB_URI)
     await dbClient.connect()
 
-    const db = dbClient.db("inventory-database")
+    const db = dbClient.db("gupta-electronics")
     const collection = db.collection("orders")
 
     // Prepare order data to match your structure

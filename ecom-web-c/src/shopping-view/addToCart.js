@@ -10,9 +10,9 @@ export const addToCart = (event, productId, stock, price) => {
   const quantity = Number.parseInt(currElement.querySelector(".qty-value").innerText, 10)
   const p = price * quantity
 
-  const idStr = String(productId) // Use productId
+  const idStr = productId // Use productId
 
-  const existing = valLocalStorage.find((item) => String(item.productId) === idStr) // Check for productId
+  const existing = valLocalStorage.find((item) => item.productId === idStr) // Check for productId
   if (existing) {
     existing.quantity = quantity
     existing.price = p

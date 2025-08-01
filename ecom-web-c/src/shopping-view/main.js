@@ -1,5 +1,5 @@
 import "./style.css"
-import { showProductsContainer } from "./homeCards" // Updated import path
+import { showProductsContainer} from "./homeCards"// Updated import path
 import { updateCartValue } from "./updateCartValue" // Updated import path
 import { getCartProduct } from "./getCartProduct" // Updated import path
 let products = []
@@ -25,7 +25,6 @@ async function onAppLoad() {
   const products = await loadProducts();
   console.log("Products loaded:", products);
   showProductsContainer(products, 0);
-
   const valLocalStorage = getCartProduct();
   updateCartValue(valLocalStorage);
 }

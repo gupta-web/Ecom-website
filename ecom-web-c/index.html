@@ -134,11 +134,49 @@
 
   <!-- New offers section -->
   <section class="section-extra-product">
-    <div class="container-grid-three--column">
+    <div class="container-grid-three--column" id="latest-arrivals-grid">
       <div class="new-prod">
         <h1>Latest Arrivals</h1>
       </div>
-      <div class="div-extra">
+
+    <template id="div-extra-template">
+    <div class="div-extra">
+      <div class="product-badge"></div>
+      <div class="product-im">
+        <img src="/placeholder.svg" alt="Product Image" class="product-image-extra">
+      </div>
+      <div class="product-det">
+        <h3 class="product-title"></h3>
+        <p class="product-description"></p>
+        <ul class="product-features">
+          <!-- Features will be dynamically added here if available -->
+        </ul>
+        <div class="product-price">
+          <div>
+            <span class="price-tag"></span>
+            <span class="price-old"></span>
+          </div>
+        </div>
+        <div class="product-controls">
+          <div class="quantity-control">
+            <button class="quantity-btn" data-action="decrease">-</button>
+            <input type="number" class="quantity-input" value="1" min="1" max="10">
+            <button class="quantity-btn" data-action="increase">+</button>
+          </div>
+          <button class="cta-button">
+            <i class="fa-solid fa-cart-plus"></i>
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </template>
+
+    <div id="latest-arrival-product-container">
+      <!-- The latest arrival product will be rendered here by JavaScript -->
+    </div>
+
+      <!-- <div class="div-extra">
         <div class="product-badge">New</div>
         <div class="product-im"></div>
         <div class="product-det">
@@ -169,76 +207,9 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <!-- Product 2 -->
-      <div class="div-extra">
-        <div class="product-badge">Hot</div>
-        <div class="product-im"></div>
-        <div class="product-det">
-          <h3 class="product-title">Smart Fitness Tracker</h3>
-          <p class="product-description">Monitor your health 24/7 with advanced sensors and AI-powered insights. Your
-            personal wellness companion.</p>
-          <ul class="product-features">
-            <li>Heart Rate & SpO2 Monitoring</li>
-            <li>7-Day Battery Life</li>
-            <li>Water Resistant Design</li>
-            <li>Smart Notifications</li>
-          </ul>
-          <div class="product-price">
-            <div>
-              <span class="price-tag">$199</span>
-              <span class="price-old">$249</span>
-            </div>
-          </div>
-          <div class="product-controls">
-            <div class="quantity-control">
-              <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
-              <input type="number" class="quantity-input" value="1" min="1" max="10">
-              <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
-            </div>
-            <button class="cta-button">
-              <i class="fa-solid fa-cart-plus"></i>
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
 
-      <!-- Product 3 -->
-      <div class="div-extra">
-        <div class="product-badge">Limited</div>
-        <div class="product-im"></div>
-        <div class="product-det">
-          <h3 class="product-title">Ultra-Fast Gaming Mouse</h3>
-          <p class="product-description">Dominate every game with precision engineered for esports professionals.
-            Lightning-fast response times guaranteed.</p>
-          <ul class="product-features">
-            <li>25,000 DPI Sensor</li>
-            <li>Ultra-lightweight 65g</li>
-            <li>RGB Customization</li>
-            <li>Pro Gaming Switch</li>
-          </ul>
-          <div class="product-price">
-            <div>
-              <span class="price-tag">$129</span>
-              <span class="price-old">$179</span>
-            </div>
-          </div>
-          <div class="product-controls">
-            <div class="quantity-control">
-              <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
-              <input type="number" class="quantity-input" value="1" min="1" max="10">
-              <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
-            </div>
-            <button class="cta-button">
-              <i class="fa-solid fa-cart-plus"></i>
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
     </div>
   </section>
 
